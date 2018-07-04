@@ -1,0 +1,23 @@
+{
+  "name": "campfinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nplayfair/CampFinder.git"
+  },
+  "author": "nplayfair",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nplayfair/CampFinder/issues"
+  },
+  "homepage": "https://github.com/nplayfair/CampFinder#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
