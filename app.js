@@ -3,26 +3,56 @@ var express     = require("express"),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose")
 
+mongoose.connect("mongodb://127.0.0.1:27017/campfinder", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
-var campgrounds = [
-  {name: "Salmon Creek", image: "https://farm8.staticflickr.com/7381/9705573948_3f342901d1.jpg"},
-  {name: "Granite Hill", image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg"},
-  {name: "Crantock Bay", image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"},
-  {name: "Salmon Creek", image: "https://farm8.staticflickr.com/7381/9705573948_3f342901d1.jpg"},
-  {name: "Granite Hill", image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg"},
-  {name: "Crantock Bay", image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"}
-];
+//SCHEMA SETUP
+var campgroundSchema = new mongoose.Schema({
+  name: String,
+  image: String
+});
+
+var Campground = mongoose.model("Campground", campgroundSchema);
+
+// Campground.create(
+//   {
+//     name: "Granite Hill",
+//     image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg",
+//   },
+//   function(err, camp) {
+//     if(err) {
+//       console.log(err);
+//     }
+//     else {
+//       console.log("newly created campground:");
+//       console.log(camp);
+//     }
+//   })
+
+// var campgrounds = [
+//   {name: "Salmon Creek", image: "https://farm8.staticflickr.com/7381/9705573948_3f342901d1.jpg"},
+//   {name: "Granite Hill", image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg"},
+//   {name: "Crantock Bay", image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"},
+//   {name: "Salmon Creek", image: "https://farm8.staticflickr.com/7381/9705573948_3f342901d1.jpg"},
+//   {name: "Granite Hill", image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg"},
+//   {name: "Crantock Bay", image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"}
+// ];
 
 app.get("/", function(req, res) {
   res.render("landing");
 });
 
 app.get("/campgrounds", function(req, res) {
-
-
-  res.render("campgrounds", {campgrounds: campgrounds});
+  // get all campgrounds from db
+  Campground.find({}, function(err, allCampgrounds) {
+    if(err) {
+      console.log(err);
+    }
+    else {
+      res.render("campgrounds", {campgrounds: allCampgrounds});
+    }
+  });
 });
 
 app.post("/campgrounds", function(req, res) {
