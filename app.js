@@ -10,31 +10,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 seedDB();
 
-// Campground.create(
-//   {
-//     name: "Granite Hill",
-//     image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg",
-//     description: "This is a huge granite hill. Beautiful mountainside location."
-//   },
-//   function(err, camp) {
-//     if(err) {
-//       console.log(err);
-//     }
-//     else {
-//       console.log("newly created campground:");
-//       console.log(camp);
-//     }
-//   })
+//Routes
 
-// var campgrounds = [
-//   {name: "Salmon Creek", image: "https://farm8.staticflickr.com/7381/9705573948_3f342901d1.jpg"},
-//   {name: "Granite Hill", image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg"},
-//   {name: "Crantock Bay", image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"},
-//   {name: "Salmon Creek", image: "https://farm8.staticflickr.com/7381/9705573948_3f342901d1.jpg"},
-//   {name: "Granite Hill", image: "https://farm1.staticflickr.com/82/225912054_690e32830d.jpg"},
-//   {name: "Crantock Bay", image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"}
-// ];
-
+//Root
 app.get("/", function(req, res) {
   res.render("landing");
 });

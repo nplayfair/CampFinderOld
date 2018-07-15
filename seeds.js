@@ -17,6 +17,11 @@ var data = [
     name: "Canyon Creek",
     image: "https://farm1.staticflickr.com/189/493046463_841a18169e.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    name: "Crantock Bay",
+    image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg",
+    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
 
 ]
