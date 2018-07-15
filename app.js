@@ -25,7 +25,7 @@ app.get("/campgrounds", function(req, res) {
       console.log(err);
     }
     else {
-      res.render("index", {campgrounds: allCampgrounds});
+      res.render("campgrounds/index", {campgrounds: allCampgrounds});
     }
   });
 });
@@ -51,7 +51,7 @@ app.post("/campgrounds", function(req, res) {
 
 //NEW - show form to create new campground
 app.get("/campgrounds/new", function(req, res) {
-  res.render("new.ejs");
+  res.render("campgrounds/new");
 });
 
 //SHOW - show information about the specified campground
@@ -63,10 +63,19 @@ app.get("/campgrounds/:id", function(req, res) {
     }
     else {
       // console.log(foundCampground);
-      res.render("show", {campground: foundCampground});
+      res.render("campgrounds/show", {campground: foundCampground});
     }
   });
 })
+
+//================
+// Comments routes
+//=================
+
+app.get("/campgrounds/:id/comments/new", function(req, res) {
+  res.render("comments/new");
+});
+
 
 //Tell express to listen for requests
 app.listen(3000, function(){
