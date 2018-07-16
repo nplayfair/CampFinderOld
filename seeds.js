@@ -5,22 +5,22 @@ var Comment     = require("./models/comment");
 var data = [
   {
     name: "Cloud's Rest",
-    image: "https://farm4.staticflickr.com/3795/10131087094_c1c0a1c859.jpg",
+    image: "/images/cloudsrest.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
     name: "California Mesa",
-    image: "https://farm6.staticflickr.com/5487/11519019346_f66401b6c1.jpg",
+    image: "/images/californiamesa.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
     name: "Canyon Creek",
-    image: "https://farm1.staticflickr.com/189/493046463_841a18169e.jpg",
+    image: "/images/canyoncreek.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
     name: "Crantock Bay",
-    image: "https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg",
+    image: "/images/crantockbay.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
 
