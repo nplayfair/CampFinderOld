@@ -1,12 +1,9 @@
-//================
-// Comments routes
-//=================
-
 var express     = require("express");
-var router      = express.Router();
+var router      = express.Router({mergeParams: true});
 var Campground  =  require("../models/campground");
 var Comment  =  require("../models/comment");
 
+//New Comment
 router.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res) {
   Campground.findById(req.params.id, function(err, campground) {
     if(err) {
@@ -40,6 +37,7 @@ router.post("/campgrounds/:id/comments", isLoggedIn, function(req, res) {
     });
 });
 
+//Middleware
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
