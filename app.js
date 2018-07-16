@@ -27,6 +27,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//Middleware to run on every route, provides user var
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
 //Routes
 
 //Root
