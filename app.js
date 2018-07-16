@@ -40,7 +40,7 @@ app.use(function(req, res, next) {
 
 app.use(indexRoutes);
 app.use(commentRoutes);
-app.use(campgroundRoutes);
+app.use("/campgrounds", campgroundRoutes);
 
 //Tell express to listen for requests
 app.listen(3000, function(){

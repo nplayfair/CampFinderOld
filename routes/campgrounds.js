@@ -7,7 +7,7 @@ var router      = express.Router();
 var Campground  =  require("../models/campground");
 
 //INDEX - show all campgrounds
-router.get("/campgrounds", function(req, res) {
+router.get("/", function(req, res) {
   // get all campgrounds from db
   Campground.find({}, function(err, allCampgrounds) {
     if(err) {
@@ -20,7 +20,7 @@ router.get("/campgrounds", function(req, res) {
 });
 
 //CREATE - add new campground to db
-router.post("/campgrounds", function(req, res) {
+router.post("/", function(req, res) {
   //get data from form and add to campgrounds array
   var name = req.body.name;
   var image = req.body.image;
@@ -39,12 +39,12 @@ router.post("/campgrounds", function(req, res) {
 });
 
 //NEW - show form to create new campground
-router.get("/campgrounds/new", function(req, res) {
+router.get("/new", function(req, res) {
   res.render("campgrounds/new");
 });
 
 //SHOW - show information about the specified campground
-router.get("/campgrounds/:id", function(req, res) {
+router.get("/:id", function(req, res) {
   //find the campground with the provided id
   Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground) {
     if(err) {
