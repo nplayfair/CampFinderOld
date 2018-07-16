@@ -1,16 +1,31 @@
-var express     = require("express"),
-    app         = express(),
-    bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose"),
-    Campground  = require("./models/campground"),
-    Comment     = require("./models/comment"),
-    seedDB      = require("./seeds")
+var express       = require("express"),
+    app           = express(),
+    bodyParser    = require("body-parser"),
+    mongoose      = require("mongoose"),
+    passport      = require("passport"),
+    Campground    = require("./models/campground"),
+    LocalStrategy = require("passport-local"),
+    Comment       = require("./models/comment"),
+    User          = require("./models/user"),
+    seedDB        = require("./seeds")
 
 mongoose.connect("mongodb://127.0.0.1:27017/campfinder", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 seedDB();
+
+//Passport config
+app.use(require("express-session")({
+  secret: "Perfect sound forever",
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //Routes
 
@@ -104,13 +119,31 @@ app.post("/campgrounds/:id/comments", function(req, res) {
           }
         });
       }
-    })
-    //Create new comment
-    //Associate comment with campground
-    //Redirect
-
-
+    });
 });
+
+//================
+// Auth routes
+//=================
+
+//SHOW register form
+app.get("/register", function(req, res) {
+  res.render("register");
+});
+
+//Handle sign up logic
+app.post("/register", function(req, res) {
+  var newUser = new User({username: req.body.username});
+  User.register(newUser, req.body.password, function(err, user) {
+    if(err) {
+      console.log(err);
+      res.render("register");
+    }
+    passport.authenticate("local")(req, res, function() {
+      res.redirect("/campgrounds");
+    });
+  });
+})
 
 
 //Tell express to listen for requests
