@@ -159,6 +159,11 @@ app.post("/login", passport.authenticate("local",
   function(req, res) {
 });
 
+//Logout route
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/campgrounds");
+})
 
 //Tell express to listen for requests
 app.listen(3000, function(){
