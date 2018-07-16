@@ -18,7 +18,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/campfinder", {useNewUrlParser: true}
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-seedDB();
+// seedDB();
 
 //Passport config
 app.use(require("express-session")({
