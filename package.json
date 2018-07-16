@@ -1,6 +1,6 @@
 {
   "name": "campfinder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web app for finding and rating camp grounds",
   "main": "app.js",
   "scripts": {
@@ -20,6 +20,10 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
-    "mongoose": "^5.2.3"
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.3",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
   }
 }
