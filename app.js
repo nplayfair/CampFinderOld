@@ -41,8 +41,9 @@ app.use(function(req, res, next) {
 });
 
 app.use(indexRoutes);
-app.use(commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
+
 
 //Tell express to listen for requests
 app.listen(3000, function(){
