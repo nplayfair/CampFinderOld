@@ -16,8 +16,11 @@
         <img class="img-responsive" src="<%= campground.image %>">
         <div class="caption">
           <h4 class="pull-right">£9.00 per night</h4>
-          <a href="#"><h4><%= campground.name %></h4></a>
+          <a href="#"><h3><%= campground.name %></h3></a>
+          <h5>Submitted by: <small><%= campground.author.username %></small></h5>
+          <hr>
           <p><%= campground.description %></p>
+
         </div>
       </div>
       <div class="well">
