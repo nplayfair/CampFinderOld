@@ -1,13 +1,14 @@
-var express       = require("express"),
-    app           = express(),
-    bodyParser    = require("body-parser"),
-    mongoose      = require("mongoose"),
-    passport      = require("passport"),
-    Campground    = require("./models/campground"),
-    LocalStrategy = require("passport-local"),
-    Comment       = require("./models/comment"),
-    User          = require("./models/user"),
-    seedDB        = require("./seeds")
+var express         = require("express"),
+    app             = express(),
+    bodyParser      = require("body-parser"),
+    mongoose        = require("mongoose"),
+    passport        = require("passport"),
+    Campground      = require("./models/campground"),
+    LocalStrategy   = require("passport-local"),
+    Comment         = require("./models/comment"),
+    User            = require("./models/user"),
+    methodOverride  = require("method-override"),
+    seedDB          = require("./seeds")
 
 //Require routes
 var commentRoutes     = require("./routes/comments"),
@@ -18,6 +19,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/campfinder", {useNewUrlParser: true}
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 // seedDB();
 
 //Passport config
