@@ -56,7 +56,7 @@ router.get("/:comment_id/edit", function(req, res) {
   });
 });
 
-//UPDATE - updatea a comment
+//UPDATE - update a a comment
 router.put("/:comment_id", function(req, res) {
   Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment) {
     if(err) {
@@ -65,7 +65,20 @@ router.put("/:comment_id", function(req, res) {
     else {
       res.redirect("/campgrounds/" + req.params.id);
     }
-  })
+  });
+});
+
+//DESTROY - delete a comment
+router.delete("/:comment_id", function(req, res) {
+  //Remove the comment
+  Comment.findByIdAndRemove(req.params.comment_id, function(err) {
+    if(err) {
+      res.redirect("back");
+    }
+    else {
+      res.redirect("/campgrounds/"+req.params.id);
+    }
+  });
 });
 
 //Middleware
