@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
@@ -16,7 +17,9 @@ var commentRoutes     = require("./routes/comments"),
     campgroundRoutes  = require("./routes/campgrounds"),
     indexRoutes       = require("./routes/index")
 
-mongoose.connect("mongodb://127.0.0.1:27017/campfinder", {useNewUrlParser: true});
+var dbUrl = process.env.DATABASEURL || "mongodb://127.0.0.1:27017/campfinder";
+
+mongoose.connect(dbUrl, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
