@@ -1,5 +1,8 @@
 body {
   background-color: #000;
+  background-image: url(/images/bg/adrian-393713-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #landing-header {
@@ -41,7 +44,7 @@ body {
 }
 
 .slideshow li:nth-child(1) {
-  background-image: url(/images/bg/adrian-393713-unsplash.jpg)
+  background-image: url(/images/bg/glen-jackson-242973-unsplash.jpg)
 }
 .slideshow li:nth-child(2) {
   background-image: url(/images/bg/ben-duchac-66129-unsplash.jpg);
@@ -52,7 +55,7 @@ body {
   animation-delay: 20s;
 }
 .slideshow li:nth-child(4) {
-  background-image: url(/images/bg/glen-jackson-242973-unsplash.jpg);
+  background-image: url(/images/bg/adrian-393713-unsplash.jpg);
   animation-delay: 30s;
 }
 .slideshow li:nth-child(5) {
