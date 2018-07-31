@@ -1,8 +1,5 @@
 body {
-  background-color: #000;
-  background-image: url(/images/bg/adrian-393713-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: lightblue;
 }
 
 #landing-header {
