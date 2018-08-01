@@ -41,33 +41,11 @@ router.get("/", function(req, res) {
 
 //CREATE - add new campground to db
 router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, res) {
-  // //get data from form and add to campgrounds array
-  // var name = req.body.name;
-  // var price = req.body.price;
-  // var image = req.body.image;
-  // var desc = req.body.description;
-  // var author = {
-  //   id: req.user._id,
-  //   username: req.user.username
-  // }
-  // var newCampground = {name: name, price: price, image: image, description: desc, author: author}
-  // // Create a new campground and save to DB
-  // Campground.create(newCampground, function(err, newlyCreated) {
-  //   if(err) {
-  //     console.log(err);
-  //   }
-  //   else {
-  //     //redirect back to campgrounds page
-  //     res.redirect("/campgrounds");
-  //   }
-  // });
+
   cloudinary.v2.uploader.upload(req.file.path, function(error, result) {
-    console.log(req.body.campground);
-    console.log("===========");
-    console.log(result);
-    // add cloudinary url for the image to the campground object under image property
+    // Add cloudinary url for the image to the campground object under image property
     req.body.campground.image = result.secure_url;
-    // add author to campground
+    // Add author to campground
     req.body.campground.author = {
       id: req.user._id,
       username: req.user.username
