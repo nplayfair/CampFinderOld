@@ -61,7 +61,10 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
   //     res.redirect("/campgrounds");
   //   }
   // });
-  cloudinary.uploader.upload(req.file.path, function(result) {
+  cloudinary.v2.uploader.upload(req.file.path, function(error, result) {
+    console.log(req.body.campground);
+    console.log("===========");
+    console.log(result);
     // add cloudinary url for the image to the campground object under image property
     req.body.campground.image = result.secure_url;
     // add author to campground
