@@ -13,3 +13,8 @@
 .text-center {
   text-align: center;
 }
+
+.user-form {
+  width: 30%;
+  margin: 40px auto;
+}
