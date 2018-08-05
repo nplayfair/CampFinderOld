@@ -1,6 +1,6 @@
 {
   "name": "campfinder",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Web app for finding and rating camp grounds",
   "main": "app.js",
   "scripts": {
