@@ -1,11 +1,3 @@
-.thumbnail {
-  padding: 0;
-}
-
-.thumbnail img {
-  width: 100%;
-}
-
 .delete-form {
   display: inline;
 }
@@ -15,6 +7,18 @@
 }
 
 .user-form {
-  width: 30%;
-  margin: 40px auto;
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.cap-name {
+  text-transform: capitalize;
+}
+
+.campground-attribution {
+  font-style: italic;
+}
+
+.review {
+  font-size: 0.8em;
 }
