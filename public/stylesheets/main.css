@@ -22,3 +22,14 @@
 .review {
   font-size: 0.8em;
 }
+
+.cg-jumbo {
+  background: linear-gradient(
+     rgba(20,20,20, .3),
+     rgba(20,20,20, .3)),
+     url(/images/bg/adrian-393713-unsplash.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center;
+   color: white;
+}
